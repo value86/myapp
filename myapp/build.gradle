@@ -1,0 +1,112 @@
+
+// for use Spring Boot Gradle plugin
+plugins {
+  id 'org.springframework.boot' version '1.5.12.RELEASE'
+}
+
+// Apply the java-library plugin to add support for Java Library
+apply plugin: 'java'
+apply plugin: 'war'
+//apply plugin: 'eclipse-wtp'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+
+  // need revision number
+  // https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
+  // compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.3.1'
+  compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.3.2'
+
+  // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+  // compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.5.9.RELEASE'
+  compile group: 'org.springframework.boot', name: 'spring-boot-starter-security'
+
+  // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+  compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+
+  // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat
+  // compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '1.5.8.RELEASE'
+  compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat'
+
+
+  // need revision number, version: '3.2.18.RELEASE', It is latest version include org.springframework.orm.ibatis.support.SqlMapClientDaoSupport
+  // https://mvnrepository.com/artifact/org.springframework/spring-orm
+  compile group: 'org.springframework', name: 'spring-orm'
+
+
+  // https://mvnrepository.com/artifact/org.springframework.restdocs/spring-restdocs-mockmvc
+  // compile group: 'org.springframework.restdocs', name: 'spring-restdocs-mockmvc', version: '1.2.2.RELEASE'
+  compile group: 'org.springframework.restdocs', name: 'spring-restdocs-mockmvc'
+
+  // https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api
+  compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.0.Final'
+
+  // https://mvnrepository.com/artifact/org.apache.ibatis/ibatis-sqlmap
+  compile group: 'org.apache.ibatis', name: 'ibatis-sqlmap', version: '2.3.4.726'
+  // compile group: 'org.apache.ibatis', name: 'ibatis-sqlmap', version: '2.3.0'
+  // tmnlp-1.1.0.jar made with ibatis-sqlmap version: '2.3.0'. If error occur, please use version: '2.3.0'.
+
+  // https://mvnrepository.com/artifact/org.postgresql/postgresql
+  compile group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
+
+  // https://mvnrepository.com/artifact/joda-time/joda-time
+  compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
+
+  // https://mvnrepository.com/artifact/com.github.mygreen/super-csv-annotation
+  compile group: 'com.github.mygreen', name: 'super-csv-annotation', version: '2.1'
+
+  //compile("org.thymeleaf:thymeleaf-spring4")
+  // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4
+  compile group: 'org.thymeleaf', name: 'thymeleaf-spring4'
+
+  // Spring Boot Gradle plugin, you don't need revision number.
+  // https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect
+  compile group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect'
+
+  // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+  compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+
+  // https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2
+  compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.2.0'
+
+  // Test support is provided by two modules; spring-boot-test contains core items,
+  // and spring-boot-test-autoconfigure supports auto-configuration for test.
+  // Most developers will just use the spring-boot-starter-test 'Starter' which imports both Spring Boot test modules
+  // as well has JUnit, AssertJ, Hamcrest and a number of other useful libraries.
+
+  // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+  // testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.5.8.RELEASE'
+  testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+
+  // https://mvnrepository.com/artifact/org.springframework/spring-test
+  // testCompile group: 'org.springframework', name: 'spring-test', version: '5.0.1.RELEASE'
+  testCompile group: 'org.springframework', name: 'spring-test'
+
+  // https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter-test
+  testCompile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter-test', version: '1.3.1'
+
+  // https://mvnrepository.com/artifact/pl.pragmatists/JUnitParams
+  testCompile group: 'pl.pragmatists', name: 'JUnitParams', version: '1.1.1'
+
+  // https://mvnrepository.com/artifact/org.dbunit/dbunit
+  testCompile group: 'org.dbunit', name: 'dbunit', version: '2.5.4'
+
+  // https://springtestdbunit.github.io/spring-test-dbunit
+  testCompile group: 'com.github.springtestdbunit', name: 'spring-test-dbunit', version: '1.3.0'
+
+  // https://mvnrepository.com/artifact/org.jmockit/jmockit
+  testCompile group: 'org.jmockit', name: 'jmockit', version: '1.37'
+
+  // https://mvnrepository.com/artifact/com.ninja-squad/DbSetup
+  testCompile group: 'com.ninja-squad', name: 'DbSetup', version: '2.1.0'
+
+}
